@@ -13,7 +13,7 @@ authors = [
 ]
 
 dependencies = [
-    "numpy>=1.22",
+    "numpy>=2.0",
     "scipy",
     "dacite",
     "gymnasium>=1.0",
