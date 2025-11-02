@@ -7,6 +7,10 @@ build/
 dist/
 *.egg-info/
 
+# Build artifacts from justfile
+pyproject.toml.bak
+*.tmp
+
 # ipython/jupyter notebooks
 # *.ipynb
 **/.ipynb_checkpoints/

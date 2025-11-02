@@ -1,6 +1,80 @@
 [build-system]
-requires = ["setuptools>=62.3.0"]
+requires = ["setuptools>=62.3.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "mani_skill"
+version = "3.0.0b21"
+description = "ManiSkill3: A Unified Benchmark for Generalizable Manipulation Skills"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    {name = "ManiSkill contributors"}
+]
+
+dependencies = [
+    "numpy>=1.22",
+    "scipy",
+    "dacite",
+    "gymnasium>=1.0",
+    "h5py",
+    "pyyaml",
+    "tqdm",
+    "GitPython",
+    "tabulate",
+    "transforms3d",
+    "trimesh",
+    "imageio",
+    "imageio[ffmpeg]",
+    "mplib==0.1.1; platform_system=='Linux'",
+    "fast_kinematics==0.2.2; platform_system=='Linux'",
+    "IPython",
+    "pytorch_kinematics==0.7.6",
+    "pynvml",
+    "tyro>=0.8.5",
+    "huggingface_hub",
+    "sapien>=3.0.0; platform_system=='Linux'",
+    "sapien>=3.0.0.b1; platform_system=='Windows'",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "isort",
+    "pre-commit",
+    "build",
+    "twine",
+    "stable_baselines3",
+    "pynvml",
+    "pytest-xdist[psutil]",
+    "pytest-forked",
+]
+
+docs = [
+    "sphinx==6.2.1",
+    "sphinx-autobuild",
+    "pydata_sphinx_theme",
+    "sphinxcontrib.spelling",
+    "sphinx-autodoc-typehints",
+    "sphinx_copybutton",
+    "myst-parser",
+    "sphinx-subfigure",
+    "sphinxcontrib-video",
+    "sphinx-togglebutton",
+    "sphinx_design",
+    "sphinx-autoapi",
+]
+
+[project.urls]
+Homepage = "https://github.com/haosulab/ManiSkill"
+
+[tool.setuptools.packages.find]
+include = ["mani_skill*"]
+
+[tool.setuptools.package-data]
+mani_skill = ["assets/**", "envs/**/*", "utils/**/*"]
+"warp_maniskill.warp" = ["native/*", "native/nanovdb/*"]
 
 [tool.pytest.ini_options]
 markers = [

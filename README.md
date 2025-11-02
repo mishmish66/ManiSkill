@@ -33,11 +33,27 @@ Users looking for the original ManiSkill2 can find the commit for that codebase 
 ## Installation
 Installation of ManiSkill is extremely simple, you only need to run a few pip installs and setup Vulkan for rendering.
 
+### Stable Release
 ```bash
 # install the package
 pip install --upgrade mani_skill
 # install a version of torch that is compatible with your system
 pip install torch
+```
+
+### Nightly Builds
+For the latest development version with cutting-edge features:
+```bash
+pip install --upgrade mani_skill-nightly
+pip install torch
+```
+
+### Development Installation
+To contribute or modify ManiSkill:
+```bash
+git clone https://github.com/haosulab/ManiSkill.git
+cd ManiSkill
+pip install -e ".[dev]"
 ```
 
 Finally you also need to set up Vulkan with [instructions here](https://maniskill.readthedocs.io/en/latest/user_guide/getting_started/installation.html#vulkan)
