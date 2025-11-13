@@ -51,11 +51,12 @@ class ManiSkillVectorEnv(VectorEnv):
         self.ignore_terminations = ignore_terminations
         self.record_metrics = record_metrics
         self.spec = self._env.spec
-        super().__init__(
-            num_envs,
+        super().__init__()
+        self.num_envs = num_envs
+        self.single_observation_space = (
             self._env.get_wrapper_attr("single_observation_space"),
-            self._env.get_wrapper_attr("single_action_space"),
         )
+        self.single_action_space = (self._env.get_wrapper_attr("single_action_space"),)
         if not self.ignore_terminations and auto_reset:
             assert (
                 self.base_env.reconfiguration_freq == 0 or self.base_env.num_envs == 1
@@ -142,7 +143,8 @@ class ManiSkillVectorEnv(VectorEnv):
             infos["episode"] = episode_info
 
         dones = torch.logical_or(
-            terminations, truncations  # pyright: ignore[reportArgumentType]
+            terminations,
+            truncations,  # pyright: ignore[reportArgumentType]
         )
 
         if dones.any() and self.auto_reset:
