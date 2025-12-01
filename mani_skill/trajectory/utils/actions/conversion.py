@@ -123,7 +123,7 @@ def from_pd_joint_pos_to_ee(
         if pbar is not None:
             pbar.update()
 
-        ori_action = common.to_tensor(ori_actions[t], device=env.unwraped.device)
+        ori_action = common.to_tensor(ori_actions[t], device=env.unwrapped.device)
         ori_action_dict = common.to_tensor(
             ori_controller.to_action_dict(ori_action), device=env.unwrapped.device
         )
